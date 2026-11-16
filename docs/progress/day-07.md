@@ -26,6 +26,8 @@
 
 ## 主要边界和剩余事项
 
+GitHub交付：复盘提交[1d57043](https://github.com/JoeyXXia/trade-java/commit/1d57043cdf74f8827012abf33e226e8b0a5de4b2)已推送，核对远端main SHA一致。[Actions 43881207326](https://github.com/JoeyXXia/trade-java/actions/runs/43881207326)结论success；checks、integration均成功（含前端测试/构建/审计及两轮真实容器回归），[远程步骤证据](../reports/day7/github-actions.json)绑定该SHA。此处是远程实测，不由本地结果推断。
+
 未发现必须改动业务实现的新缺陷；本日文档纠偏不能包装为安全漏洞修复。当前只是本地学习身份基线，无生产订单、支付或跨服务保证。sessionStorage不防XSS、复制标签页可能重放、DB每请求检查有依赖成本，敏感操作并发状态边界未声称全局线性化；版本支持与4项中危测试依赖仍需后续专项处理。
 
 [复现与学习清单](../runbooks/week1-review.md)列出集合、泛型、equals/hashCode、代理事务与认证授权问题。AI运行验证不等同用户能独立解释；v0.1门槛保留，人工清单不单独阻塞后续已授权工程。下一轮按真实进度选择Day8，本轮不提前实现。
