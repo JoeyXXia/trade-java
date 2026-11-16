@@ -1,4 +1,4 @@
-name: Day 2 checks
+name: Application checks
 
 on:
   push:
@@ -36,6 +36,7 @@ jobs:
         working-directory: web
         run: |
           npm ci
+          npm test
           npm run build
           npm audit --audit-level=high
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

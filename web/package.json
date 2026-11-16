@@ -8,18 +8,28 @@
     "npm": ">=10 <11"
   },
   "packageManager": "npm@10.9.0",
+  "overrides": {
+    "vite": "$vite"
+  },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview --host 127.0.0.1"
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run"
   },
   "dependencies": {
-    "vue": "3.5.45"
+    "element-plus": "2.14.8",
+    "pinia": "3.0.4",
+    "vue": "3.5.45",
+    "vue-router": "4.6.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "6.0.1",
+    "@vue/test-utils": "2.4.6",
+    "jsdom": "27.4.0",
     "typescript": "5.9.3",
     "vite": "7.3.8",
+    "vitest": "4.1.12",
     "vue-tsc": "3.1.1"
   }
 }
