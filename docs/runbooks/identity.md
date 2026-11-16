@@ -12,7 +12,7 @@ POST /api/auth/logout：JSON仅含refreshToken，204，同family撤销；不存�
 
 登录入口按规范化账号+实际连接来源，在60秒固定窗口原子预约最多10次校验，成功清空；第11次429 LOGIN_THROTTLED、Retry-After: 60。忽略X-Forwarded-For，未经配置不信任代理头；此策略不是全站DDoS防护。尚无自动清理节流桶/过期会话的后台任务。
 
-当前没有认证cookie/session，因此CSRF关闭；未来切换cookie必须重新设计CSRF与SameSite。密钥轮换、浏览器存储和跨标签页刷新协调尚未实现；不要记录令牌或将当前本地学习环境直接暴露公网。
+当前没有认证cookie/session，因此CSRF关闭；未来切换cookie必须重新设计CSRF与SameSite。Day 6前端access放内存、refresh放标签页sessionStorage，详见[前端手册](day6-web.md)。密钥轮换和跨标签页刷新协调尚未实现；不要记录令牌或将当前本地学习环境直接暴露公网。
 
 GET /api/users/{id}仅本人可读；身份来自签名subject，查询userId和X-User-Id不能替换身份。运营能力使用ResourceAccess.requireOperations（OPERATOR/ADMIN），资源归属使用requireOwner（所有者），管理员禁用在URL与服务方法层限制。生产尚无订单或运营业务写入接口。
 

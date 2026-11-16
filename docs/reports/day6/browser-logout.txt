@@ -1,0 +1,12 @@
+### Result
+{"loginPath":"/login","refreshAfterLogout":401,"storageCleared":true,"noHorizontalOverflow":true}
+### Ran Playwright code
+```js
+await (async (page) => { const old = await page.evaluate(() => sessionStorage.getItem('commerceflow.refresh.v1')); await page.getByRole('button',{name:'退出',exact:true}).click(); await page.getByRole('heading',{name:'登录 CommerceFlow'}).waitFor(); const state = await page.evaluate(async raw => { const r=await fetch('/api/auth/refresh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({refreshToken:raw})}); return {refreshAfterLogout:r.status,storageCleared:sessionStorage.length===0,noHorizontalOverflow:document.documentElement.scrollWidth<=innerWidth};},old); if(state.refreshAfterLogout!==401 || !state.storageCleared || !state.noHorizontalOverflow) throw new Error('Logout or narrow viewport invariant failed'); return {loginPath:new URL(page.url()).pathname,...state}; })(page);
+```
+### Page
+- Page URL: http://127.0.0.1:5173/login
+- Page Title: CommerceFlow
+- Console: 1 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-11-16T10-22-06-877Z.log#L2

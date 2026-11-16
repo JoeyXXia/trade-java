@@ -1,0 +1,11 @@
+### Result
+{"reload":{"rotated":true,"localStorageEmpty":true,"refreshOnly":true},"directAdminApi":{"status":403,"code":"FORBIDDEN"},"adminRouteDenied":true}
+### Ran Playwright code
+```js
+await (async (page) => { await page.getByRole('heading', {name:'你好，day6-browser-20261116'}).waitFor(); const before = await page.evaluate(() => sessionStorage.getItem('commerceflow.refresh.v1')); await page.reload(); await page.getByRole('heading', {name:'你好，day6-browser-20261116'}).waitFor(); const storage = await page.evaluate(old => ({rotated:sessionStorage.getItem('commerceflow.refresh.v1') !== old, localStorageEmpty:localStorage.length === 0, refreshOnly:Object.keys(sessionStorage).join(',') === 'commerceflow.refresh.v1'}), before); if(!storage.rotated || !storage.localStorageEmpty || !storage.refreshOnly) throw new Error('Reload invariant failed'); const api = await page.evaluate(async () => {const {useSession} = await import('/src/stores/session.ts');try{await useSession().api('/api/admin/users/1/disable',{method:'POST'});return {status:200};}catch(e){return {status:e.status,code:e.code};}}); if(api.status !== 403) throw new Error('Buyer API was not denied'); await page.goto('http://127.0.0.1:5173/admin'); await page.getByRole('heading',{name:'没有此工作区的访问权限'}).waitFor(); return {reload:storage,directAdminApi:api,adminRouteDenied:new URL(page.url()).pathname === '/forbidden'}; })(page);
+```
+### Page
+- Page URL: http://127.0.0.1:5173/forbidden
+- Page Title: CommerceFlow
+### Events
+- New console entries: .playwright-cli\console-2026-11-16T10-22-06-877Z.log#L1

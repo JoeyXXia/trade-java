@@ -1,0 +1,135 @@
+{
+  "run_id": 43848857292,
+  "head_sha": "9a74c0f301c1120be4e4daa4de62155a316a45c5",
+  "status": "completed",
+  "conclusion": "success",
+  "html_url": "https://github.com/JoeyXXia/trade-java/actions/runs/43848857292",
+  "updated_at": "2026-11-16T10:30:47Z",
+  "jobs": [
+    {
+      "id": 133235899126,
+      "name": "checks",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-16T10:26:31Z",
+      "completed_at": "2026-11-16T10:27:33Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate Compose without starting services",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Unit and HTTP tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Reproducible frontend build and audit",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 133236449098,
+      "name": "integration",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-16T10:27:35Z",
+      "completed_at": "2026-11-16T10:30:47Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Require Docker Linux engine",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run real integration tests twice",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}

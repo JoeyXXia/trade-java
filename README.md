@@ -1,10 +1,12 @@
 # CommerceFlow Java
 
-分布式电商交易与订单履约学习项目。Day 1–5 工程、身份、令牌生命周期、对象归属辅助层与禁用审计已实现。商品、订单、支付账本尚未实现。
+分布式电商交易与订单履约学习项目。Day 1–6 工程、身份、令牌生命周期、对象归属辅助层、禁用审计与Vue身份页面壳已实现。商品、订单、支付账本尚未实现。
 
 [身份运行手册](docs/runbooks/identity.md) · [Day 3 验收](docs/progress/day-03.md) · [Day 4 验收](docs/progress/day-04.md)
 
 [Day 5 对象授权与审计验收](docs/progress/day-05.md)
+
+[Day 6 前端运行手册](docs/runbooks/day6-web.md) · [Day 6 实际进度与验收](docs/progress/day-06.md)
 
 [项目计划](docs/planning/CommerceFlow-Java-项目总计划.md) · [Day 1 约束](docs/architecture/day1-constraints.md) · [版本与支持状态](docs/architecture/versions.md) · [Day 1 进度](docs/progress/day-01.md)
 
@@ -54,10 +56,11 @@ java -jar backend/payment-simulator/target/payment-simulator-0.1.0-SNAPSHOT.jar
 ```powershell
 cd web
 npm ci
+npm test
 npm run dev
 ```
 
-打开 [本地前端](http://127.0.0.1:5173)，点击“检查后端健康”，应显示 UP。Vite 将 `/actuator` 代理到 Trade 服务，不需要放开 CORS。前端 build 的部署反向代理留待部署阶段，`npm run preview` 仅适合静态预览。
+打开 [本地前端](http://127.0.0.1:5173)，点击“检查后端健康”，应显示 UP。登录与身份页面需按身份手册启用database profile。Vite 将 `/api`、`/actuator` 代理到 Trade 服务，不需要放开 CORS。前端 build 的部署反向代理留待部署阶段，`npm run preview` 仅适合静态预览。
 
 ```powershell
 Invoke-RestMethod http://127.0.0.1:8080/actuator/health
@@ -102,4 +105,4 @@ macOS/Linux 可设置 JDK 21 的 JAVA_HOME 后在根目录运行 `./mvnw verify`
 ./mvnw.cmd -B -ntp -Pcompatibility org.apache.maven.plugins:maven-dependency-plugin:3.8.1:tree '-DoutputFile=target/dependency-tree.txt'
 ```
 
-前端提交 package-lock，后端固定 parent/BOM/插件并保存实际依赖树。集成测试显式使用 `-Pintegration verify`，普通 verify 不执行容器测试。Day 6 及之后尚未开始。旧版本手册保留其生成时的代码快照，不随新功能改写历史。
+前端提交 package-lock，后端固定 parent/BOM/插件并保存实际依赖树。集成测试显式使用 `-Pintegration verify`，普通 verify 不执行容器测试。Day 7 及之后尚未开始。旧版本手册保留其生成时的代码快照，不随新功能改写历史。
