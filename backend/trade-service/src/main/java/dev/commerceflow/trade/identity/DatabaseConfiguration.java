@@ -23,6 +23,8 @@ public class DatabaseConfiguration {
         source.setMaximumPoolSize(8);
         source.setConnectionTimeout(3000);
         source.setInitializationFailTimeout(5000);
+        source.addDataSourceProperty("connectionTimeZone", "UTC");
+        source.addDataSourceProperty("forceConnectionTimeZoneToSession", "true");
         try (var ignored = source.getConnection()) {
             // Fail the explicit database profile at startup on invalid credentials.
         } catch (java.sql.SQLException failure) {
@@ -34,7 +36,7 @@ public class DatabaseConfiguration {
 
     @Bean JdbcTemplate jdbcTemplate(DataSource source) {
         var jdbc = new JdbcTemplate(source);
-        jdbc.queryForList("SELECT id, login_name, password_hash, role FROM app_user LIMIT 0");
+        jdbc.queryForList("SELECT id, login_name, password_hash, role, enabled FROM app_user LIMIT 0");
         return jdbc;
     }
     @Bean PlatformTransactionManager transactionManager(DataSource source) {

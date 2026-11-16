@@ -6,7 +6,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public record UserPrincipal(long id, String loginName, String passwordHash, String role) implements UserDetails {
+public record UserPrincipal(long id, String loginName, String passwordHash, String role, boolean enabled) implements UserDetails {
+    @Override public boolean isEnabled() { return enabled; }
     @Override public String getUsername() { return loginName; }
     @Override public String getPassword() { return passwordHash; }
     @Override public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -13,8 +13,10 @@ public class AuthService {
     private final UserRepository users;
     private final PasswordEncoder encoder;
     private final AuthenticationManager authentication;
-    public AuthService(UserRepository users, PasswordEncoder encoder, AuthenticationManager authentication) {
+    private final LoginThrottle throttle;
+    public AuthService(UserRepository users, PasswordEncoder encoder, AuthenticationManager authentication, LoginThrottle throttle) {
         this.users = users; this.encoder = encoder; this.authentication = authentication;
+        this.throttle = throttle;
     }
     public static String normalize(String name) { return name.toLowerCase(Locale.ROOT); }
 
@@ -26,11 +28,14 @@ public class AuthService {
         return new AuthController.UserView(Long.toString(id), normalized, "BUYER");
     }
 
-    public AuthController.UserView login(String login, String password) {
+    public AuthController.UserView login(String login, String password, String source) {
+        String normalized = normalize(login);
+        throttle.reserve(normalized, source);
         if (password.getBytes(StandardCharsets.UTF_8).length > 72) throw new BadCredentialsException("Invalid credentials");
         var result = authentication.authenticate(
-            UsernamePasswordAuthenticationToken.unauthenticated(normalize(login), password));
+            UsernamePasswordAuthenticationToken.unauthenticated(normalized, password));
         var principal = (UserPrincipal) result.getPrincipal();
+        throttle.success(normalized, source);
         return new AuthController.UserView(Long.toString(principal.id()), principal.loginName(), principal.role());
     }
 

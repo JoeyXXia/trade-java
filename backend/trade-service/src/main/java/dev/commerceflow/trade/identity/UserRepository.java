@@ -14,9 +14,20 @@ public class UserRepository {
     public UserRepository(JdbcTemplate jdbc) { this.jdbc = jdbc; }
 
     public Optional<UserAccount> findByLogin(String name) {
-        return jdbc.query("SELECT id, login_name, password_hash, role FROM app_user WHERE login_name = ?",
+        return jdbc.query("SELECT id, login_name, password_hash, role, enabled FROM app_user WHERE login_name = ?",
             (rs, row) -> new UserAccount(rs.getLong("id"), rs.getString("login_name"),
-                rs.getString("password_hash"), rs.getString("role")), name).stream().findFirst();
+                rs.getString("password_hash"), rs.getString("role"), rs.getBoolean("enabled")), name).stream().findFirst();
+    }
+
+    public Optional<UserAccount> findById(long id) {
+        return jdbc.query("SELECT id, login_name, password_hash, role, enabled FROM app_user WHERE id = ?",
+            (rs, row) -> new UserAccount(rs.getLong("id"), rs.getString("login_name"),
+                rs.getString("password_hash"), rs.getString("role"), rs.getBoolean("enabled")), id).stream().findFirst();
+    }
+    public Optional<UserAccount> findByIdForUpdate(long id) {
+        return jdbc.query("SELECT id, login_name, password_hash, role, enabled FROM app_user WHERE id = ? FOR UPDATE",
+            (rs, row) -> new UserAccount(rs.getLong("id"), rs.getString("login_name"),
+                rs.getString("password_hash"), rs.getString("role"), rs.getBoolean("enabled")), id).stream().findFirst();
     }
 
     public long insertBuyer(String login, String hash) {

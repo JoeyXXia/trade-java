@@ -1,5 +1,5 @@
 package dev.commerceflow.trade.identity;
 
-public record UserAccount(long id, String loginName, String passwordHash, String role) {
+public record UserAccount(long id, String loginName, String passwordHash, String role, boolean enabled) {
     @Override public String toString() { return "UserAccount[id=" + id + ", role=" + role + "]"; }
 }

@@ -21,7 +21,7 @@ public class SecurityConfiguration {
             var repository = repositories.getIfAvailable();
             if (repository == null) throw new UsernameNotFoundException("Invalid credentials");
             var user = repository.findByLogin(name).orElseThrow(() -> new UsernameNotFoundException("Invalid credentials"));
-            return new UserPrincipal(user.id(), user.loginName(), user.passwordHash(), user.role());
+            return new UserPrincipal(user.id(), user.loginName(), user.passwordHash(), user.role(), user.enabled());
         };
     }
 
@@ -32,14 +32,24 @@ public class SecurityConfiguration {
         return new ProviderManager(provider);
     }
 
-    @Bean SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // No cookies, sessions, Basic or form login. Day 4 will add Bearer tokens.
+    @Bean SecurityFilterChain securityFilterChain(HttpSecurity http,
+            ObjectProvider<org.springframework.security.oauth2.jwt.JwtDecoder> decoders,
+            ObjectProvider<UserRepository> repositories) throws Exception {
+        // Bearer header / refresh JSON body only; no browser auth cookies or sessions.
+        var decoder = decoders.getIfAvailable();
+        if (decoder != null) {
+            http.oauth2ResourceServer(rs -> rs.jwt(jwt -> jwt.decoder(decoder))
+                .authenticationEntryPoint((req,res,ex) -> unauthorized(res)));
+            http.addFilterAfter(new ActiveUserFilter(repositories.getObject()),
+                org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.class);
+        }
         return http.csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .requestCache(cache -> cache.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/actuator/**", "/error").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/auth/register", "/api/auth/login").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/auth/register", "/api/auth/login", "/api/auth/refresh", "/api/auth/logout").permitAll()
+                .requestMatchers("/api/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated())
             .exceptionHandling(errors -> errors
                 .authenticationEntryPoint((req, res, ex) -> {
@@ -51,5 +61,9 @@ public class SecurityConfiguration {
                     res.getWriter().write("{\"code\":\"FORBIDDEN\",\"message\":\"Access denied\"}");
                 }))
             .build();
+    }
+    static void unauthorized(jakarta.servlet.http.HttpServletResponse res) throws java.io.IOException {
+        res.setStatus(401); res.setContentType("application/json");
+        res.getWriter().write("{\"code\":\"UNAUTHORIZED\",\"message\":\"Authentication required\"}");
     }
 }

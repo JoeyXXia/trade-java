@@ -14,6 +14,11 @@ public class ApiErrors {
     ResponseEntity<ErrorBody> invalid(Exception ignored) { return error(400, "INVALID_REQUEST", "Invalid request"); }
     @ExceptionHandler(AuthenticationException.class)
     ResponseEntity<ErrorBody> credentials(AuthenticationException ignored) { return error(401, "INVALID_CREDENTIALS", "Invalid credentials"); }
+    @ExceptionHandler(LoginThrottle.Limited.class)
+    ResponseEntity<ErrorBody> limited(LoginThrottle.Limited ignored) {
+        return ResponseEntity.status(429).header("Retry-After", "60")
+            .body(new ErrorBody("LOGIN_THROTTLED", "Try again later"));
+    }
     @ExceptionHandler(DuplicateKeyException.class)
     ResponseEntity<ErrorBody> duplicate(DuplicateKeyException ignored) { return error(409, "LOGIN_NAME_UNAVAILABLE", "Login name unavailable"); }
     @ExceptionHandler(DataAccessException.class)

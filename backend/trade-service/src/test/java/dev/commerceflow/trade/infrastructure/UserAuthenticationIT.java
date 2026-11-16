@@ -33,6 +33,8 @@ class UserAuthenticationIT {
         properties.add("spring.datasource.url", MYSQL::getJdbcUrl);
         properties.add("spring.datasource.username", MYSQL::getUsername);
         properties.add("spring.datasource.password", MYSQL::getPassword);
+        properties.add("commerceflow.jwt-secret-base64", () -> java.util.Base64.getEncoder().encodeToString(
+            "fixture-only-jwt-secret-at-least-thirty-two-bytes-long".getBytes(java.nio.charset.StandardCharsets.UTF_8)));
     }
     @Autowired TestRestTemplate http;
     @Autowired JdbcTemplate jdbc;

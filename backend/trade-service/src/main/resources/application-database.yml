@@ -3,3 +3,5 @@ spring:
     url: ${TRADE_DB_URL}
     username: ${TRADE_DB_USER:trade_app}
     password: ${TRADE_DB_PASSWORD}
+commerceflow:
+  jwt-secret-base64: ${JWT_SECRET_BASE64}
