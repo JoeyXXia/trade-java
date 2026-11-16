@@ -1,0 +1,26 @@
+ffmpeg version n7.0.1-playwright-build-1013 Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 10-win32 (GCC) 20220113
+  configuration: --arch=x86_64 --target-os=mingw32 --cross-prefix=/usr/bin/x86_64-w64-mingw32- --disable-doc --pkg-config=pkg-config --pkg-config-flags=--static --extra-cflags=-I//root/prefix/include --extra-ldflags='-L//root/prefix/lib -static' --prefix=/root/prefix --bindir=/root/ffmpeg/bin --extra-version=playwright-build-1013 --disable-debug --disable-autodetect --disable-everything --enable-ffmpeg --enable-protocol=pipe --enable-protocol=file --enable-parser=mjpeg --enable-decoder=mjpeg --enable-demuxer=image2pipe --enable-filter=pad --enable-filter=crop --enable-filter=scale --enable-muxer=webm --enable-libvpx --enable-static --enable-encoder=libvpx_vp9 --enable-decoder=libvpx_vp9 --enable-bsf=vp9_superframe --enable-demuxer=matroska --enable-encoder=png --enable-zlib --enable-muxer=image2 --disable-iconv --disable-bzlib
+  libavutil      59.  8.100 / 59.  8.100
+  libavcodec     61.  3.100 / 61.  3.100
+  libavformat    61.  1.100 / 61.  1.100
+  libavdevice    61.  1.100 / 61.  1.100
+  libavfilter    10.  1.100 / 10.  1.100
+  libswscale      8.  1.100 /  8.  1.100
+  libswresample   5.  1.100 /  5.  1.100
+[libvpx-vp9 @ 000001c561bb1e40] v1.14.1
+Input #0, matroska,webm, from 'docs/reports/day7/identity-demo.webm':
+  Metadata:
+    creation_time   : 2026-11-16T13:54:53.412000Z
+    ENCODER         : Lavf61.1.100
+  Duration: 00:01:20.42, start: 0.000000, bitrate: 120 kb/s
+  Stream #0:0(eng): Video: vp9 (libvpx-vp9) (Profile 0), yuv420p(tv, progressive), 1000x760, SAR 1:1 DAR 25:19, 12 fps, 12 tbr, 1k tbn (default)
+      Metadata:
+        ENCODER         : Lavc61.3.100 libvpx-vp9
+        DURATION        : 00:01:20.416000000
+[AVFilterGraph @ 000001c561bba2c0] No option name near '1/10'
+[AVFilterGraph @ 000001c561bba2c0] Error parsing a filter description around:
+[AVFilterGraph @ 000001c561bba2c0] Error parsing filterchain 'fps=1/10' around:
+[vost#0:0/png @ 000001c561bb2a80] Error initializing a simple filtergraph
+Error opening output file output/playwright/day7-qa/frame-%03d.png.
+Error opening output files: Invalid argument

@@ -31,7 +31,7 @@
 | Testcontainers | 1.21.4 | 测试 |
 | Maven Failsafe | 3.5.6 | integration profile |
 
-[Day 2 依赖树](../reports/day2/trade-dependencies.txt)保存实际解析结果。客户端均不进入生产运行包，不触发业务应用的数据源/迁移自动配置。本地便携 Compose CLI 2.39.4、actionlint 1.7.7 只用于校验，保存在忽略的 .tools 中。
+[Day 2 依赖树](../reports/day2/trade-dependencies.txt)保存当时解析结果。此处是Day2历史状态；Day3起MySQL驱动、JDBC和Security已进入运行包，当前范围见下文Day7复核。迁移仍显式执行。本地便携 Compose CLI 2.39.4、actionlint 1.7.7 只用于校验，保存在忽略的 .tools 中。
 
 Day 2 后续使用用户安装的 Docker Desktop 完成实际容器验证，client/server 29.9.3、Compose 5.7.0。Flyway 11.7.2 对 MySQL 8.4 发出高于已测试版本的警告；本地两轮测试通过不等于扩大官方支持范围，详见 Day 2 报告。
 
@@ -41,11 +41,15 @@ Day 2 后续使用用户安装的 Docker Desktop 完成实际容器验证，clie
 - [Alibaba 官方版本关系](https://sca.aliyun.com/en/docs/2025.x/overview/version-explain/)：2025.0.0.0 基于 Cloud 2025.0.0 / Boot 3.5.0，Nacos 3.0.3、RocketMQ 5.3.1。本项目使用同代较高补丁 Cloud 2025.0.3 / Boot 3.5.16，并用启动、兼容检查和真实客户端实验验证，不把版本表当运行证据。
 - [Nacos 2025.x 快速开始](https://sca.aliyun.com/en/docs/2025.x/user-guide/nacos/quick-start/)：public/空 namespace 使用 Nacos 3.x。
 - [Boot 3.5.16 官方发布公告](https://spring.io/blog/2026/06/25/spring-boot-3-5-16-available-now/)明确它是最后一个 3.5.x OSS 发布。按计划保留 3.5 供本地学习，不描述为仍有免费安全维护。对外发布前必须决定升级受支持版本或采用商业支持，不能仅以“兼容”证明“安全”。
-- [Spring 安全公告](https://spring.io/security/)已查阅；当前未引入 Security、Data JPA、Cloud Config 等组件。未做全量 Java 传递依赖 CVE 扫描，不能宣称零漏洞；Nacos/MQ 固定的是兼容基线，也不宣称最新版本。
+- [Spring 安全公告](https://spring.io/security/)在Day1已查阅；当时未引入Security。Day3起已引入Security，当前仍无Data JPA、Cloud Config。未做全量 Java 传递依赖 CVE 扫描，不能宣称零漏洞；Nacos/MQ 固定的是兼容基线，也不宣称最新版本。
 - 前端首次审计发现 Vue server-renderer 与 Vite 公告漏洞，分别更新到 3.5.45 / 7.3.8；最终完整 npm audit 为 0 项。这只覆盖当次 npm 公告数据库，不覆盖 JDK/Node/Java 库和镜像。
 - MySQL/Redis 版本和 digest 来自 Docker Hub 官方仓库标签 API；只记录实际可查询值，不据此推断支持状态或安全性。
 
-## 依赖树如何解释
+## Day 7当前状态复核
+
+运行包实查Security6.5.11、Spring JDBC6.2.19、Hikari6.3.3、MySQL Connector9.7.0；Flyway仍只在测试/插件中，运行包无Flyway。前端已增加Router/Pinia/Element Plus及Vitest，Day7重新npm audit仍有4项中危测试依赖问题、0高危/严重，不能沿用Day1的零项结论描述当前全依赖树。没有升级BOM或安装ORM。决定、取舍与官方支持链接见[ADR-001](adr-001-week1-baseline.md)，实测见[Day7报告](../progress/day-07.md)。
+
+## 历史依赖树说明
 
 [Trade 依赖树](../reports/day1/trade-dependencies.txt)和 [Probe 依赖树](../reports/day1/probe-dependencies.txt)由 Maven 导出。Web/Actuator 属于 Boot 管理；Cloud、Alibaba 只在可选 probe 中引入实际组件。contracts 目前为空，空 JAR 警告符合 Day 1 边界。
 

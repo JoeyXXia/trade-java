@@ -8,6 +8,8 @@
 
 [Day 6 前端运行手册](docs/runbooks/day6-web.md) · [Day 6 实际进度与验收](docs/progress/day-06.md)
 
+[第一周安全链路](docs/architecture/week1-security.md) · [版本与身份ADR](docs/architecture/adr-001-week1-baseline.md) · [Day7复盘与短演示](docs/progress/day-07.md)
+
 [项目计划](docs/planning/CommerceFlow-Java-项目总计划.md) · [Day 1 约束](docs/architecture/day1-constraints.md) · [版本与支持状态](docs/architecture/versions.md) · [Day 1 进度](docs/progress/day-01.md)
 
 [Day 2 启动与测试手册](docs/runbooks/day2-local.md) · [Day 2 实际进度与验收](docs/progress/day-02.md)
@@ -105,4 +107,4 @@ macOS/Linux 可设置 JDK 21 的 JAVA_HOME 后在根目录运行 `./mvnw verify`
 ./mvnw.cmd -B -ntp -Pcompatibility org.apache.maven.plugins:maven-dependency-plugin:3.8.1:tree '-DoutputFile=target/dependency-tree.txt'
 ```
 
-前端提交 package-lock，后端固定 parent/BOM/插件并保存实际依赖树。集成测试显式使用 `-Pintegration verify`，普通 verify 不执行容器测试。Day 7 及之后尚未开始。旧版本手册保留其生成时的代码快照，不随新功能改写历史。
+前端提交 package-lock，后端固定 parent/BOM/插件并保存实际依赖树。集成测试显式使用 `-Pintegration verify`，普通 verify 不执行容器测试。Day7工程复盘已完成，人工学习验收与v0.1标记待完成；Day8及之后尚未开始。旧版本手册保留其生成时的代码快照，不随新功能改写历史。

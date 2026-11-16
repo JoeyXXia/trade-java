@@ -1,0 +1,10 @@
+BOOT-INF/lib/HikariCP-6.3.3.jar
+BOOT-INF/lib/mysql-connector-j-9.7.0.jar
+BOOT-INF/lib/spring-jdbc-6.2.19.jar
+BOOT-INF/lib/spring-security-config-6.5.11.jar
+BOOT-INF/lib/spring-security-core-6.5.11.jar
+BOOT-INF/lib/spring-security-crypto-6.5.11.jar
+BOOT-INF/lib/spring-security-oauth2-core-6.5.11.jar
+BOOT-INF/lib/spring-security-oauth2-jose-6.5.11.jar
+BOOT-INF/lib/spring-security-oauth2-resource-server-6.5.11.jar
+BOOT-INF/lib/spring-security-web-6.5.11.jar

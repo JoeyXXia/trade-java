@@ -1,0 +1,20 @@
+{
+  "fps": 12,
+  "sourceDurationSeconds": 80.416,
+  "file": "identity-demo.webm",
+  "trimStartSeconds": 67,
+  "bytes": 478269,
+  "sha256": "D83BAC173336F7046763D46B8ECC434357AE4571E9753B53F321B5A1FFAA59B4",
+  "width": 1000,
+  "format": "webm/vp9",
+  "height": 760,
+  "durationSeconds": 13.416,
+  "checkedFramesSeconds": [
+    2,
+    4,
+    5,
+    6,
+    8,
+    11
+  ]
+}

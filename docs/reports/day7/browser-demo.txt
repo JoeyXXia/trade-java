@@ -1,0 +1,2 @@
+### Result
+{"anonymousRedirect":true,"loginSucceeded":true,"refreshRotated":true,"routeDenied":true,"directApi":{"status":403,"code":"FORBIDDEN","hasTrace":true},"logout":{"refreshStatus":401,"storageCleared":true}}
