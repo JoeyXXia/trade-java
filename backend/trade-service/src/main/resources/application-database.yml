@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: ${TRADE_DB_URL}
+    username: ${TRADE_DB_USER:trade_app}
+    password: ${TRADE_DB_PASSWORD}

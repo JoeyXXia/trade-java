@@ -1,0 +1,55 @@
+package dev.commerceflow.trade.identity;
+
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.context.annotation.*;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.*;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration(proxyBeanMethods = false)
+public class SecurityConfiguration {
+    @Bean PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(10); }
+
+    @Bean UserDetailsService userDetailsService(ObjectProvider<UserRepository> repositories) {
+        return name -> {
+            var repository = repositories.getIfAvailable();
+            if (repository == null) throw new UsernameNotFoundException("Invalid credentials");
+            var user = repository.findByLogin(name).orElseThrow(() -> new UsernameNotFoundException("Invalid credentials"));
+            return new UserPrincipal(user.id(), user.loginName(), user.passwordHash(), user.role());
+        };
+    }
+
+    @Bean AuthenticationManager authenticationManager(UserDetailsService users, PasswordEncoder encoder) {
+        var provider = new DaoAuthenticationProvider(users);
+        provider.setPasswordEncoder(encoder);
+        provider.setHideUserNotFoundExceptions(true);
+        return new ProviderManager(provider);
+    }
+
+    @Bean SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        // No cookies, sessions, Basic or form login. Day 4 will add Bearer tokens.
+        return http.csrf(csrf -> csrf.disable())
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .requestCache(cache -> cache.disable())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/actuator/**", "/error").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/auth/register", "/api/auth/login").permitAll()
+                .anyRequest().authenticated())
+            .exceptionHandling(errors -> errors
+                .authenticationEntryPoint((req, res, ex) -> {
+                    res.setStatus(401); res.setContentType("application/json");
+                    res.getWriter().write("{\"code\":\"UNAUTHORIZED\",\"message\":\"Authentication required\"}");
+                })
+                .accessDeniedHandler((req, res, ex) -> {
+                    res.setStatus(403); res.setContentType("application/json");
+                    res.getWriter().write("{\"code\":\"FORBIDDEN\",\"message\":\"Access denied\"}");
+                }))
+            .build();
+    }
+}

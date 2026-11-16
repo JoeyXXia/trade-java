@@ -67,15 +67,17 @@ class MySqlMigrationIT {
     @Test
     void emptyDatabaseMigratesAndSecondRunPreservesData() throws SQLException {
         var flyway = migrations(schema, "root", MYSQL.getPassword());
-        assertThat(flyway.migrate().migrationsExecuted).isEqualTo(1);
+        int pending = flyway.info().pending().length;
+        assertThat(pending).isPositive();
+        assertThat(flyway.migrate().migrationsExecuted).isEqualTo(pending);
         try (var connection = rootConnection(schema)) {
             assertThat(count(connection, "SELECT COUNT(*) FROM app_user")).isZero();
             insertFixture(connection, "test-user");
             assertThat(flyway.migrate().migrationsExecuted).isZero();
             assertThat(count(connection, "SELECT COUNT(*) FROM app_user")).isEqualTo(1);
-            assertThat(count(connection, "SELECT COUNT(*) FROM flyway_schema_history WHERE success = 1")).isEqualTo(1);
+            assertThat(count(connection, "SELECT COUNT(*) FROM flyway_schema_history WHERE success = 1")).isEqualTo(pending);
         }
-        assertThat(flyway.info().current().getVersion().getVersion()).isEqualTo("1");
+        assertThat(flyway.info().pending()).isEmpty();
     }
 
     @Test
@@ -100,6 +102,9 @@ class MySqlMigrationIT {
     void changedMigrationIsRejectedWithoutApplyingTheChangedSql() throws Exception {
         var flyway = migrations(schema, "root", MYSQL.getPassword());
         flyway.migrate();
+        try (var migrations = Files.list(TestImages.repositoryRoot().resolve("backend/trade-service/src/main/resources/db/migration"))) {
+            for (var file : migrations.toList()) Files.copy(file, temporaryMigrations.resolve(file.getFileName()));
+        }
         try (var original = getClass().getResourceAsStream("/db/migration/V1__create_app_user.sql")) {
             assertThat(original).isNotNull();
             String changedSql = new String(original.readAllBytes(), StandardCharsets.UTF_8)

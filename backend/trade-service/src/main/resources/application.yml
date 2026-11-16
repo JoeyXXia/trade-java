@@ -1,6 +1,11 @@
 spring:
   application:
     name: trade-service
+  flyway:
+    enabled: false
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
 server:
   address: 127.0.0.1
   port: 8080
