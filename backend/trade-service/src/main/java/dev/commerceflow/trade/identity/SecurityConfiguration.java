@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration(proxyBeanMethods = false)
+@org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity
 public class SecurityConfiguration {
     @Bean PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(10); }
 
@@ -53,17 +54,14 @@ public class SecurityConfiguration {
                 .anyRequest().authenticated())
             .exceptionHandling(errors -> errors
                 .authenticationEntryPoint((req, res, ex) -> {
-                    res.setStatus(401); res.setContentType("application/json");
-                    res.getWriter().write("{\"code\":\"UNAUTHORIZED\",\"message\":\"Authentication required\"}");
+                    unauthorized(res);
                 })
                 .accessDeniedHandler((req, res, ex) -> {
-                    res.setStatus(403); res.setContentType("application/json");
-                    res.getWriter().write("{\"code\":\"FORBIDDEN\",\"message\":\"Access denied\"}");
+                    ErrorResponses.write(res, 403, "FORBIDDEN", "Access denied");
                 }))
             .build();
     }
     static void unauthorized(jakarta.servlet.http.HttpServletResponse res) throws java.io.IOException {
-        res.setStatus(401); res.setContentType("application/json");
-        res.getWriter().write("{\"code\":\"UNAUTHORIZED\",\"message\":\"Authentication required\"}");
+        ErrorResponses.write(res, 401, "UNAUTHORIZED", "Authentication required");
     }
 }

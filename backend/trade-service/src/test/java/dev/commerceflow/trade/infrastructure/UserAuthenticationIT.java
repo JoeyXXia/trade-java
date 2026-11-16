@@ -59,13 +59,18 @@ class UserAuthenticationIT {
         assertThat(post("register", Map.of("loginName","DUP-BUYER","password","fixture-password-456")).getStatusCode().value()).isEqualTo(409);
         assertThat(jdbc.queryForObject("SELECT COUNT(*) FROM app_user WHERE login_name='dup-buyer'", Integer.class)).isEqualTo(1);
     }
-    @Test void wrongPasswordAndUnknownUserHaveSamePublicError() {
+    @Test void wrongPasswordAndUnknownUserHaveSamePublicError() throws Exception {
         post("register",Map.of("loginName","error-buyer","password","fixture-password-123"));
         var wrong = post("login",Map.of("loginName","error-buyer","password","wrong-password-123"));
         var unknown = post("login",Map.of("loginName","unknown-buyer","password","wrong-password-123"));
         assertThat(wrong.getStatusCode().value()).isEqualTo(401);
         assertThat(unknown.getStatusCode()).isEqualTo(wrong.getStatusCode());
-        assertThat(unknown.getBody()).isEqualTo(wrong.getBody()).doesNotContain("error-buyer", "unknown-buyer", "password_hash");
+        var json = new com.fasterxml.jackson.databind.ObjectMapper();
+        var wrongBody = json.readTree(wrong.getBody());
+        var unknownBody = json.readTree(unknown.getBody());
+        assertThat(unknownBody.path("code")).isEqualTo(wrongBody.path("code"));
+        assertThat(unknownBody.path("message")).isEqualTo(wrongBody.path("message"));
+        assertThat(unknown.getBody()).doesNotContain("error-buyer", "unknown-buyer", "password_hash");
     }
     @Test void rejectsInvalidInputUnknownRoleAndBcryptByteOverflow() {
         assertThat(post("register",Map.of("loginName","x","password","short")).getStatusCode().value()).isEqualTo(400);

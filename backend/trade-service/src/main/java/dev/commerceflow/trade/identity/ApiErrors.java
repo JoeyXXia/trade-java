@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 @RestControllerAdvice
 public class ApiErrors {
-    public record ErrorBody(String code, String message) {}
+    public record ErrorBody(String code, String message, String traceId) {
+        public ErrorBody(String code, String message) { this(code, message, TraceIds.current()); }
+    }
     @ExceptionHandler({MethodArgumentNotValidException.class, HttpMessageNotReadableException.class, AuthService.InvalidInput.class})
     ResponseEntity<ErrorBody> invalid(Exception ignored) { return error(400, "INVALID_REQUEST", "Invalid request"); }
     @ExceptionHandler(AuthenticationException.class)
@@ -23,6 +25,12 @@ public class ApiErrors {
     ResponseEntity<ErrorBody> duplicate(DuplicateKeyException ignored) { return error(409, "LOGIN_NAME_UNAVAILABLE", "Login name unavailable"); }
     @ExceptionHandler(DataAccessException.class)
     ResponseEntity<ErrorBody> database(DataAccessException ignored) { return error(503, "DEPENDENCY_UNAVAILABLE", "Service temporarily unavailable"); }
+    @ExceptionHandler(org.springframework.security.access.AccessDeniedException.class)
+    ResponseEntity<ErrorBody> forbidden(Exception ignored) { return error(403, "FORBIDDEN", "Access denied"); }
+    @ExceptionHandler({UserAdministration.NotFound.class, org.springframework.web.servlet.resource.NoResourceFoundException.class})
+    ResponseEntity<ErrorBody> missing(Exception ignored) { return error(404, "NOT_FOUND", "Resource not found"); }
+    @ExceptionHandler(org.springframework.web.method.annotation.MethodArgumentTypeMismatchException.class)
+    ResponseEntity<ErrorBody> parameter(Exception ignored) { return error(400, "INVALID_REQUEST", "Invalid request"); }
     private static ResponseEntity<ErrorBody> error(int status, String code, String message) {
         return ResponseEntity.status(status).body(new ErrorBody(code, message));
     }

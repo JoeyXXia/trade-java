@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController @Profile("database")
 public class IdentityController {
     private final UserRepository users;
-    private final TokenService tokens;
-    public IdentityController(UserRepository users, TokenService tokens) { this.users = users; this.tokens = tokens; }
+    private final UserAdministration administration;
+    public IdentityController(UserRepository users, UserAdministration administration) { this.users = users; this.administration = administration; }
     @GetMapping("/api/me")
     public AuthController.UserView me(@AuthenticationPrincipal Jwt jwt) {
         var user = users.findById(Long.parseLong(jwt.getSubject())).filter(UserAccount::enabled)
@@ -18,5 +18,12 @@ public class IdentityController {
         return new AuthController.UserView(Long.toString(user.id()), user.loginName(), user.role());
     }
     @PostMapping("/api/admin/users/{id}/disable") @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void disable(@PathVariable long id) { tokens.disable(id); }
+    public void disable(@PathVariable long id) { administration.disable(id); }
+
+    @GetMapping("/api/users/{id}")
+    @org.springframework.security.access.prepost.PreAuthorize("@resourceAccess.owns(authentication, #p0)")
+    public AuthController.UserView ownUser(@PathVariable long id) {
+        var user = users.findById(id).orElseThrow(UserAdministration.NotFound::new);
+        return new AuthController.UserView(Long.toString(user.id()), user.loginName(), user.role());
+    }
 }

@@ -60,6 +60,7 @@ public class TokenService {
     }
 
     @Transactional
+    @org.springframework.security.access.prepost.PreAuthorize("hasRole('ADMIN')")
     public void disable(long userId) {
         jdbc.update("UPDATE app_user SET enabled=FALSE WHERE id=?", userId);
         jdbc.update("UPDATE refresh_session SET revoked_at=? WHERE user_id=? AND revoked_at IS NULL", Timestamp.from(Instant.now()), userId);

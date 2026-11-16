@@ -14,6 +14,10 @@ POST /api/auth/logout：JSON仅含refreshToken，204，同family撤销；不存�
 
 当前没有认证cookie/session，因此CSRF关闭；未来切换cookie必须重新设计CSRF与SameSite。密钥轮换、浏览器存储和跨标签页刷新协调尚未实现；不要记录令牌或将当前本地学习环境直接暴露公网。
 
+GET /api/users/{id}仅本人可读；身份来自签名subject，查询userId和X-User-Id不能替换身份。运营能力使用ResourceAccess.requireOperations（OPERATOR/ADMIN），资源归属使用requireOwner（所有者），管理员禁用在URL与服务方法层限制。生产尚无订单或运营业务写入接口。
+
+常见错误统一code/message/traceId，响应头X-Trace-Id为服务端UUID；反馈问题可提供该ID，不提供密码或token。禁用成功在identity_audit记录当前actor、target、USER_DISABLED、SUCCESS、时间和trace；审计失败回滚禁用与会话撤销。没有对外审计查询或修改接口。
+
 密码不入日志或响应；没有默认管理员/默认口令。OPERATOR/ADMIN只能通过受控数据操作或后续管理流程创建，不能通过注册字段指定。HTTPS、部署访问控制与支持版本评估仍是正式部署前要求，当前服务绑定本地回环。
 
 默认普通构建：`./mvnw.cmd -B -ntp verify`。完整真实数据库验收：`./mvnw.cmd -B -ntp -Pintegration verify`，需要Docker Linux引擎；不跳过引擎错误。

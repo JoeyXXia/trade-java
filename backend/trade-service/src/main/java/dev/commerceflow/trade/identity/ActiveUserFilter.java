@@ -29,8 +29,7 @@ final class ActiveUserFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(fresh);
             } catch (DataAccessException e) {
                 SecurityContextHolder.clearContext();
-                response.setStatus(503); response.setContentType("application/json");
-                response.getWriter().write("{\"code\":\"DEPENDENCY_UNAVAILABLE\",\"message\":\"Service temporarily unavailable\"}");
+                ErrorResponses.write(response, 503, "DEPENDENCY_UNAVAILABLE", "Service temporarily unavailable");
                 return;
             }
         }
