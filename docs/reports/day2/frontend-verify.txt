@@ -1,0 +1,20 @@
+
+added 45 packages, and audited 46 packages in 3s
+
+6 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> commerceflow-web@0.1.0 build
+> vue-tsc -b && vite build
+
+vite v7.3.8 building client environment for production...
+transforming...
+✓ 11 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                  0.39 kB │ gzip:  0.28 kB
+dist/assets/index-CY96iPfh.css   0.62 kB │ gzip:  0.37 kB
+dist/assets/index-MUKUYsWM.js   65.99 kB │ gzip: 26.47 kB
+✓ built in 689ms

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: payment-simulator
+server:
+  address: 127.0.0.1
+  port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never

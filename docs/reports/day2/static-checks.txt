@@ -1,0 +1,8 @@
+Compose 2.39.4 config --quiet: PASS (no containers started)
+actionlint 1.7.7: PASS
+MySQL init Bash syntax: PASS
+PowerShell script syntax: PASS
+Missing migration credential: rejected before database connection (PASS)
+deploy/.env git ignore: PASS
+Existing env file: overwrite rejected and original hash unchanged (PASS)
+Invalid MySQL port: rejected before database connection (PASS)

@@ -1,0 +1,293 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] commerceflow                                                       [pom]
+[INFO] contracts                                                          [jar]
+[INFO] trade-service                                                      [jar]
+[INFO] payment-simulator                                                  [jar]
+[INFO] 
+[INFO] -------------------< dev.commerceflow:commerceflow >--------------------
+[INFO] Building commerceflow 0.1.0-SNAPSHOT                               [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (toolchain) @ commerceflow ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] ---------------------< dev.commerceflow:contracts >---------------------
+[INFO] Building contracts 0.1.0-SNAPSHOT                                  [2/4]
+[INFO]   from backend\contracts\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (toolchain) @ contracts ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ contracts ---
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\contracts\src\main\resources
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\contracts\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ contracts ---
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\contracts\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ contracts ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ contracts ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] 
+[INFO] -------------------< dev.commerceflow:trade-service >-------------------
+[INFO] Building trade-service 0.1.0-SNAPSHOT                              [3/4]
+[INFO]   from backend\trade-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (toolchain) @ trade-service ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ trade-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ trade-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ trade-service ---
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\trade-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ trade-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ trade-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.commerceflow.trade.HealthEndpointTest
+08:30:14.748 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [dev.commerceflow.trade.HealthEndpointTest]: HealthEndpointTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+08:30:14.883 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration dev.commerceflow.trade.TradeApplication for test class dev.commerceflow.trade.HealthEndpointTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-16T08:30:15.490+08:00  INFO 24424 --- [trade-service] [           main] d.commerceflow.trade.HealthEndpointTest  : Starting HealthEndpointTest using Java 21.0.13 with PID 24424 (started by 27019 in H:\codex\��Ŀ\java-trade\backend\trade-service)
+2026-11-16T08:30:15.492+08:00  INFO 24424 --- [trade-service] [           main] d.commerceflow.trade.HealthEndpointTest  : No active profile set, falling back to 1 default profile: "default"
+2026-11-16T08:30:17.519+08:00  INFO 24424 --- [trade-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-11-16T08:30:17.538+08:00  INFO 24424 --- [trade-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-16T08:30:17.538+08:00  INFO 24424 --- [trade-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-11-16T08:30:17.633+08:00  INFO 24424 --- [trade-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-16T08:30:17.634+08:00  INFO 24424 --- [trade-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2102 ms
+2026-11-16T08:30:18.846+08:00  INFO 24424 --- [trade-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-11-16T08:30:19.189+08:00  INFO 24424 --- [trade-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 3950 (http) with context path '/'
+2026-11-16T08:30:19.205+08:00  INFO 24424 --- [trade-service] [           main] d.commerceflow.trade.HealthEndpointTest  : Started HealthEndpointTest in 4.127 seconds (process running for 5.334)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (H:\codex\???\java-trade\.tools\m2\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-11-16T08:30:20.400+08:00  INFO 24424 --- [trade-service] [1-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-16T08:30:20.400+08:00  INFO 24424 --- [trade-service] [1-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-16T08:30:20.401+08:00  INFO 24424 --- [trade-service] [1-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.221 s -- in dev.commerceflow.trade.HealthEndpointTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ trade-service ---
+[INFO] Building jar: H:\codex\��Ŀ\java-trade\backend\trade-service\target\trade-service-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.5.16:repackage (repackage) @ trade-service ---
+[INFO] Replacing main artifact H:\codex\��Ŀ\java-trade\backend\trade-service\target\trade-service-0.1.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to H:\codex\��Ŀ\java-trade\backend\trade-service\target\trade-service-0.1.0-SNAPSHOT.jar.original
+[INFO] 
+[INFO] --- failsafe:3.5.6:integration-test (default) @ trade-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.commerceflow.trade.infrastructure.MySqlMigrationIT
+08:30:23.569 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+08:30:23.575 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+08:30:23.591 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.21.4
+08:30:23.942 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+08:30:24.389 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+08:30:24.391 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+08:30:24.424 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.9.3
+  API Version: 1.56
+  Operating System: Docker Desktop
+  Total Memory: 7866 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+08:30:24.531 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Creating container for image: testcontainers/ryuk:0.12.0
+08:30:25.076 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Container testcontainers/ryuk:0.12.0 is starting: 9ba95503cbae950fc5aeaa3b39591191db031261bb579ca2be80b51aaba385b3
+08:30:25.630 [main] INFO tc.testcontainers/ryuk:0.12.0 -- Container testcontainers/ryuk:0.12.0 started in PT1.0981008S
+08:30:25.647 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+08:30:25.648 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+08:30:25.649 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+08:30:25.712 [main] INFO tc.mysql:8.4.13@sha256:a81d04... -- Creating container for image: mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902
+08:30:25.939 [main] INFO tc.mysql:8.4.13@sha256:a81d04... -- Container mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 is starting: 07a4c15f43f1c9bbf69b4ebf4adb9154230cef8fcbe11e0a172941bd3628d8bb
+08:30:26.314 [main] INFO tc.mysql:8.4.13@sha256:a81d04... -- Waiting for database connection to become available at jdbc:mysql://localhost:3956/cf_bootstrap using query 'SELECT 1'
+08:30:38.828 [main] INFO tc.mysql:8.4.13@sha256:a81d04... -- Container mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 started in PT13.1161626S
+08:30:38.831 [main] INFO tc.mysql:8.4.13@sha256:a81d04... -- Container is started (JDBC URL: jdbc:mysql://localhost:3956/cf_bootstrap)
+08:30:39.333 [main] INFO org.flywaydb.core.FlywayExecutor -- Database: jdbc:mysql://localhost:3956/cf_test_c32749b3849e4903a3eef28df0fccb03?sslMode=DISABLED&allowPublicKeyRetrieval=true&connectTimeout=3000&socketTimeout=5000 (MySQL 8.4)
+08:30:39.362 [main] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+08:30:39.407 [main] INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory -- Schema history table `cf_test_c32749b3849e4903a3eef28df0fccb03`.`flyway_schema_history` does not exist yet
+08:30:39.414 [main] INFO org.flywaydb.core.internal.command.DbValidate -- Successfully validated 1 migration (execution time 00:00.035s)
+08:30:39.468 [main] INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory -- Creating Schema History table `cf_test_c32749b3849e4903a3eef28df0fccb03`.`flyway_schema_history` ...
+08:30:39.642 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Current version of schema `cf_test_c32749b3849e4903a3eef28df0fccb03`: << Empty Schema >>
+08:30:39.665 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Migrating schema `cf_test_c32749b3849e4903a3eef28df0fccb03` to version "1 - create app user"
+08:30:39.792 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Successfully applied 1 migration to schema `cf_test_c32749b3849e4903a3eef28df0fccb03`, now at version v1 (execution time 00:00.057s)
+08:30:39.936 [main] INFO org.flywaydb.core.FlywayExecutor -- Database: jdbc:mysql://localhost:3956/cf_test_c32749b3849e4903a3eef28df0fccb03?sslMode=DISABLED&allowPublicKeyRetrieval=true&connectTimeout=3000&socketTimeout=5000 (MySQL 8.4)
+08:30:39.958 [main] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+08:30:40.281 [main] INFO org.flywaydb.core.FlywayExecutor -- Database: jdbc:mysql://localhost:3956/cf_test_2fc307a8236c4c22b127fc6ff2db33bc?sslMode=DISABLED&allowPublicKeyRetrieval=true&connectTimeout=3000&socketTimeout=5000 (MySQL 8.4)
+08:30:40.327 [main] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+08:30:40.352 [main] INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory -- Schema history table `cf_test_2fc307a8236c4c22b127fc6ff2db33bc`.`flyway_schema_history` does not exist yet
+08:30:40.355 [main] INFO org.flywaydb.core.internal.command.DbValidate -- Successfully validated 1 migration (execution time 00:00.023s)
+08:30:40.396 [main] INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory -- Creating Schema History table `cf_test_2fc307a8236c4c22b127fc6ff2db33bc`.`flyway_schema_history` ...
+08:30:40.542 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Current version of schema `cf_test_2fc307a8236c4c22b127fc6ff2db33bc`: << Empty Schema >>
+08:30:40.557 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Migrating schema `cf_test_2fc307a8236c4c22b127fc6ff2db33bc` to version "1 - create app user"
+08:30:40.699 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Successfully applied 1 migration to schema `cf_test_2fc307a8236c4c22b127fc6ff2db33bc`, now at version v1 (execution time 00:00.072s)
+08:30:41.078 [main] INFO org.flywaydb.core.FlywayExecutor -- Database: jdbc:mysql://localhost:3956/cf_bootstrap?sslMode=DISABLED&allowPublicKeyRetrieval=true&connectTimeout=3000&socketTimeout=5000 (MySQL 8.4)
+08:30:41.100 [main] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+08:30:41.112 [main] INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory -- Schema history table `cf_bootstrap`.`flyway_schema_history` does not exist yet
+08:30:41.114 [main] INFO org.flywaydb.core.internal.command.DbValidate -- Successfully validated 1 migration (execution time 00:00.010s)
+08:30:41.143 [main] INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory -- Creating Schema History table `cf_bootstrap`.`flyway_schema_history` ...
+08:30:41.254 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Current version of schema `cf_bootstrap`: << Empty Schema >>
+08:30:41.265 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Migrating schema `cf_bootstrap` to version "1 - create app user"
+08:30:41.360 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Successfully applied 1 migration to schema `cf_bootstrap`, now at version v1 (execution time 00:00.060s)
+08:30:41.513 [main] INFO org.flywaydb.core.FlywayExecutor -- Database: jdbc:mysql://localhost:3956/cf_test_8511fa4a1cbd481781f31e93c4f06fad?sslMode=DISABLED&allowPublicKeyRetrieval=true&connectTimeout=3000&socketTimeout=5000 (MySQL 8.4)
+08:30:41.529 [main] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+08:30:41.544 [main] INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory -- Schema history table `cf_test_8511fa4a1cbd481781f31e93c4f06fad`.`flyway_schema_history` does not exist yet
+08:30:41.549 [main] INFO org.flywaydb.core.internal.command.DbValidate -- Successfully validated 1 migration (execution time 00:00.016s)
+08:30:41.588 [main] INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory -- Creating Schema History table `cf_test_8511fa4a1cbd481781f31e93c4f06fad`.`flyway_schema_history` ...
+08:30:41.746 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Current version of schema `cf_test_8511fa4a1cbd481781f31e93c4f06fad`: << Empty Schema >>
+08:30:41.756 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Migrating schema `cf_test_8511fa4a1cbd481781f31e93c4f06fad` to version "1 - create app user"
+08:30:41.874 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Successfully applied 1 migration to schema `cf_test_8511fa4a1cbd481781f31e93c4f06fad`, now at version v1 (execution time 00:00.063s)
+08:30:41.950 [main] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+08:30:41.968 [main] INFO org.flywaydb.core.internal.command.DbValidate -- Successfully validated 1 migration (execution time 00:00.014s)
+08:30:41.992 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Current version of schema `cf_test_8511fa4a1cbd481781f31e93c4f06fad`: 1
+08:30:41.993 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Schema `cf_test_8511fa4a1cbd481781f31e93c4f06fad` is up to date. No migration necessary.
+08:30:42.044 [main] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+08:30:42.244 [main] INFO org.flywaydb.core.FlywayExecutor -- Database: jdbc:mysql://localhost:3956/cf_test_64ffe69b82de44839abcb9bce97f083c?sslMode=DISABLED&allowPublicKeyRetrieval=true&connectTimeout=3000&socketTimeout=5000 (MySQL 8.4)
+08:30:42.257 [main] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+08:30:42.270 [main] INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory -- Schema history table `cf_test_64ffe69b82de44839abcb9bce97f083c`.`flyway_schema_history` does not exist yet
+08:30:42.273 [main] INFO org.flywaydb.core.internal.command.DbValidate -- Successfully validated 1 migration (execution time 00:00.013s)
+08:30:42.315 [main] INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory -- Creating Schema History table `cf_test_64ffe69b82de44839abcb9bce97f083c`.`flyway_schema_history` ...
+08:30:42.425 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Current version of schema `cf_test_64ffe69b82de44839abcb9bce97f083c`: << Empty Schema >>
+08:30:42.437 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Migrating schema `cf_test_64ffe69b82de44839abcb9bce97f083c` to version "1 - create app user"
+08:30:42.542 [main] INFO org.flywaydb.core.internal.command.DbMigrate -- Successfully applied 1 migration to schema `cf_test_64ffe69b82de44839abcb9bce97f083c`, now at version v1 (execution time 00:00.058s)
+08:30:42.611 [main] WARN org.flywaydb.core.internal.database.base.Database -- Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.39 s -- in dev.commerceflow.trade.infrastructure.MySqlMigrationIT
+[INFO] Running dev.commerceflow.trade.infrastructure.RedisInfrastructureIT
+08:30:43.875 [main] INFO tc.redis:7.4.12@sha256:2e3eb1... -- Creating container for image: redis:7.4.12@sha256:2e3eb11462c4e3759e6972678dd051d150ff54b1e60714b3c33b701260172a90
+08:30:44.053 [main] INFO tc.redis:7.4.12@sha256:2e3eb1... -- Container redis:7.4.12@sha256:2e3eb11462c4e3759e6972678dd051d150ff54b1e60714b3c33b701260172a90 is starting: cdf1eb9bc8eda5056d3fffe69dd812f864f632f659cc075a159e4a4a490092e0
+08:30:44.612 [main] INFO tc.redis:7.4.12@sha256:2e3eb1... -- Container redis:7.4.12@sha256:2e3eb11462c4e3759e6972678dd051d150ff54b1e60714b3c33b701260172a90 started in PT0.7374977S
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.377 s -- in dev.commerceflow.trade.infrastructure.RedisInfrastructureIT
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- failsafe:3.5.6:verify (default) @ trade-service ---
+[INFO] 
+[INFO] -----------------< dev.commerceflow:payment-simulator >-----------------
+[INFO] Building payment-simulator 0.1.0-SNAPSHOT                          [4/4]
+[INFO]   from backend\payment-simulator\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (toolchain) @ payment-simulator ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ payment-simulator ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ payment-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ payment-simulator ---
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\payment-simulator\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ payment-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ payment-simulator ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.commerceflow.payment.HealthEndpointTest
+08:30:48.490 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [dev.commerceflow.payment.HealthEndpointTest]: HealthEndpointTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+08:30:48.640 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration dev.commerceflow.payment.PaymentSimulatorApplication for test class dev.commerceflow.payment.HealthEndpointTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-16T08:30:49.264+08:00  INFO 26164 --- [payment-simulator] [           main] d.c.payment.HealthEndpointTest           : Starting HealthEndpointTest using Java 21.0.13 with PID 26164 (started by 27019 in H:\codex\��Ŀ\java-trade\backend\payment-simulator)
+2026-11-16T08:30:49.265+08:00  INFO 26164 --- [payment-simulator] [           main] d.c.payment.HealthEndpointTest           : No active profile set, falling back to 1 default profile: "default"
+2026-11-16T08:30:50.965+08:00  INFO 26164 --- [payment-simulator] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-11-16T08:30:50.988+08:00  INFO 26164 --- [payment-simulator] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-16T08:30:50.988+08:00  INFO 26164 --- [payment-simulator] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-11-16T08:30:51.075+08:00  INFO 26164 --- [payment-simulator] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-16T08:30:51.077+08:00  INFO 26164 --- [payment-simulator] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1773 ms
+2026-11-16T08:30:51.895+08:00  INFO 26164 --- [payment-simulator] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-11-16T08:30:52.219+08:00  INFO 26164 --- [payment-simulator] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9311 (http) with context path '/'
+2026-11-16T08:30:52.232+08:00  INFO 26164 --- [payment-simulator] [           main] d.c.payment.HealthEndpointTest           : Started HealthEndpointTest in 3.371 seconds (process running for 4.642)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (H:\codex\???\java-trade\.tools\m2\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-11-16T08:30:53.374+08:00  INFO 26164 --- [payment-simulator] [1-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-16T08:30:53.374+08:00  INFO 26164 --- [payment-simulator] [1-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-16T08:30:53.375+08:00  INFO 26164 --- [payment-simulator] [1-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.370 s -- in dev.commerceflow.payment.HealthEndpointTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ payment-simulator ---
+[INFO] Building jar: H:\codex\��Ŀ\java-trade\backend\payment-simulator\target\payment-simulator-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.5.16:repackage (repackage) @ payment-simulator ---
+[INFO] Replacing main artifact H:\codex\��Ŀ\java-trade\backend\payment-simulator\target\payment-simulator-0.1.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to H:\codex\��Ŀ\java-trade\backend\payment-simulator\target\payment-simulator-0.1.0-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for commerceflow 0.1.0-SNAPSHOT:
+[INFO] 
+[INFO] commerceflow ....................................... SUCCESS [  0.629 s]
+[INFO] contracts .......................................... SUCCESS [  1.391 s]
+[INFO] trade-service ...................................... SUCCESS [ 34.332 s]
+[INFO] payment-simulator .................................. SUCCESS [  7.552 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  44.616 s
+[INFO] Finished at: 2026-11-16T08:30:54+08:00
+[INFO] ------------------------------------------------------------------------

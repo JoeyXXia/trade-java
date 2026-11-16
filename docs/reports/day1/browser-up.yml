@@ -1,0 +1,9 @@
+- main [ref=e3]:
+  - paragraph [ref=e4]: COMMERCEFLOW · DAY 1
+  - heading "交易平台，从可验证的基础开始。" [level=1] [ref=e5]
+  - paragraph [ref=e6]: Java 21 · Spring Boot 3.5 · Vue 3 · TypeScript
+  - region "后端健康检查" [ref=e7]:
+    - heading "工程连接检查" [level=2] [ref=e8]
+    - status [ref=e9]: Trade 服务：UP
+    - button "检查后端健康" [ref=e10] [cursor=pointer]
+  - paragraph [ref=e11]: 当前仅完成工程骨架。商品、订单、支付与履约按每日计划逐步实现。

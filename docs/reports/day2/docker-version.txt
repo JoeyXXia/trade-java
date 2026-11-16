@@ -1,0 +1,2 @@
+Client=29.9.3 Server=29.9.3 API=1.56 MinAPI=1.40
+Docker Compose version v5.7.0

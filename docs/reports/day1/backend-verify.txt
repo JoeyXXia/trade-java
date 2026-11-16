@@ -1,0 +1,302 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] commerceflow                                                       [pom]
+[INFO] contracts                                                          [jar]
+[INFO] trade-service                                                      [jar]
+[INFO] payment-simulator                                                  [jar]
+[INFO] compatibility-probe                                                [jar]
+[INFO] 
+[INFO] -------------------< dev.commerceflow:commerceflow >--------------------
+[INFO] Building commerceflow 0.1.0-SNAPSHOT                               [1/5]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ commerceflow ---
+[INFO] Deleting H:\codex\��Ŀ\java-trade\target
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (toolchain) @ commerceflow ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] ---------------------< dev.commerceflow:contracts >---------------------
+[INFO] Building contracts 0.1.0-SNAPSHOT                                  [2/5]
+[INFO]   from backend\contracts\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ contracts ---
+[INFO] Deleting H:\codex\��Ŀ\java-trade\backend\contracts\target
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (toolchain) @ contracts ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ contracts ---
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\contracts\src\main\resources
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\contracts\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ contracts ---
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\contracts\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ contracts ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ contracts ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: H:\codex\��Ŀ\java-trade\backend\contracts\target\contracts-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] -------------------< dev.commerceflow:trade-service >-------------------
+[INFO] Building trade-service 0.1.0-SNAPSHOT                              [3/5]
+[INFO]   from backend\trade-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ trade-service ---
+[INFO] Deleting H:\codex\��Ŀ\java-trade\backend\trade-service\target
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (toolchain) @ trade-service ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ trade-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ trade-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ trade-service ---
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\trade-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ trade-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ trade-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.commerceflow.trade.HealthEndpointTest
+08:08:04.835 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [dev.commerceflow.trade.HealthEndpointTest]: HealthEndpointTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+08:08:04.971 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration dev.commerceflow.trade.TradeApplication for test class dev.commerceflow.trade.HealthEndpointTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-16T08:08:05.555+08:00  INFO 18312 --- [trade-service] [           main] d.commerceflow.trade.HealthEndpointTest  : Starting HealthEndpointTest using Java 21.0.13 with PID 18312 (started by 27019 in H:\codex\��Ŀ\java-trade\backend\trade-service)
+2026-11-16T08:08:05.556+08:00  INFO 18312 --- [trade-service] [           main] d.commerceflow.trade.HealthEndpointTest  : No active profile set, falling back to 1 default profile: "default"
+2026-11-16T08:08:07.074+08:00  INFO 18312 --- [trade-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-11-16T08:08:07.091+08:00  INFO 18312 --- [trade-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-16T08:08:07.092+08:00  INFO 18312 --- [trade-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-11-16T08:08:07.173+08:00  INFO 18312 --- [trade-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-16T08:08:07.175+08:00  INFO 18312 --- [trade-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1587 ms
+2026-11-16T08:08:07.985+08:00  INFO 18312 --- [trade-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-11-16T08:08:08.314+08:00  INFO 18312 --- [trade-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9492 (http) with context path '/'
+2026-11-16T08:08:08.326+08:00  INFO 18312 --- [trade-service] [           main] d.commerceflow.trade.HealthEndpointTest  : Started HealthEndpointTest in 3.167 seconds (process running for 4.238)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (H:\codex\???\java-trade\.tools\m2\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-11-16T08:08:09.484+08:00  INFO 18312 --- [trade-service] [1-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-16T08:08:09.485+08:00  INFO 18312 --- [trade-service] [1-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-16T08:08:09.486+08:00  INFO 18312 --- [trade-service] [1-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.124 s -- in dev.commerceflow.trade.HealthEndpointTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ trade-service ---
+[INFO] Building jar: H:\codex\��Ŀ\java-trade\backend\trade-service\target\trade-service-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.5.16:repackage (repackage) @ trade-service ---
+[INFO] Replacing main artifact H:\codex\��Ŀ\java-trade\backend\trade-service\target\trade-service-0.1.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to H:\codex\��Ŀ\java-trade\backend\trade-service\target\trade-service-0.1.0-SNAPSHOT.jar.original
+[INFO] 
+[INFO] -----------------< dev.commerceflow:payment-simulator >-----------------
+[INFO] Building payment-simulator 0.1.0-SNAPSHOT                          [4/5]
+[INFO]   from backend\payment-simulator\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ payment-simulator ---
+[INFO] Deleting H:\codex\��Ŀ\java-trade\backend\payment-simulator\target
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (toolchain) @ payment-simulator ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ payment-simulator ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ payment-simulator ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ payment-simulator ---
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\payment-simulator\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ payment-simulator ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ payment-simulator ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.commerceflow.payment.HealthEndpointTest
+08:08:13.313 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [dev.commerceflow.payment.HealthEndpointTest]: HealthEndpointTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+08:08:13.445 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration dev.commerceflow.payment.PaymentSimulatorApplication for test class dev.commerceflow.payment.HealthEndpointTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-16T08:08:14.018+08:00  INFO 36904 --- [payment-simulator] [           main] d.c.payment.HealthEndpointTest           : Starting HealthEndpointTest using Java 21.0.13 with PID 36904 (started by 27019 in H:\codex\��Ŀ\java-trade\backend\payment-simulator)
+2026-11-16T08:08:14.021+08:00  INFO 36904 --- [payment-simulator] [           main] d.c.payment.HealthEndpointTest           : No active profile set, falling back to 1 default profile: "default"
+2026-11-16T08:08:15.577+08:00  INFO 36904 --- [payment-simulator] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-11-16T08:08:15.591+08:00  INFO 36904 --- [payment-simulator] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-16T08:08:15.593+08:00  INFO 36904 --- [payment-simulator] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-11-16T08:08:15.669+08:00  INFO 36904 --- [payment-simulator] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-16T08:08:15.670+08:00  INFO 36904 --- [payment-simulator] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1613 ms
+2026-11-16T08:08:16.541+08:00  INFO 36904 --- [payment-simulator] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-11-16T08:08:16.879+08:00  INFO 36904 --- [payment-simulator] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9509 (http) with context path '/'
+2026-11-16T08:08:16.892+08:00  INFO 36904 --- [payment-simulator] [           main] d.c.payment.HealthEndpointTest           : Started HealthEndpointTest in 3.254 seconds (process running for 4.336)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (H:\codex\???\java-trade\.tools\m2\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-11-16T08:08:17.899+08:00  INFO 36904 --- [payment-simulator] [1-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-16T08:08:17.899+08:00  INFO 36904 --- [payment-simulator] [1-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-16T08:08:17.904+08:00  INFO 36904 --- [payment-simulator] [1-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.014 s -- in dev.commerceflow.payment.HealthEndpointTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ payment-simulator ---
+[INFO] Building jar: H:\codex\��Ŀ\java-trade\backend\payment-simulator\target\payment-simulator-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.5.16:repackage (repackage) @ payment-simulator ---
+[INFO] Replacing main artifact H:\codex\��Ŀ\java-trade\backend\payment-simulator\target\payment-simulator-0.1.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to H:\codex\��Ŀ\java-trade\backend\payment-simulator\target\payment-simulator-0.1.0-SNAPSHOT.jar.original
+[INFO] 
+[INFO] ----------------< dev.commerceflow:compatibility-probe >----------------
+[INFO] Building compatibility-probe 0.1.0-SNAPSHOT                        [5/5]
+[INFO]   from backend\compatibility-probe\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.21.0-GA during dependency collection step for project (use -X to see details)
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ compatibility-probe ---
+[INFO] Deleting H:\codex\��Ŀ\java-trade\backend\compatibility-probe\target
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (toolchain) @ compatibility-probe ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ compatibility-probe ---
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\compatibility-probe\src\main\resources
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\compatibility-probe\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ compatibility-probe ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ compatibility-probe ---
+[INFO] skip non existing resourceDirectory H:\codex\��Ŀ\java-trade\backend\compatibility-probe\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ compatibility-probe ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 3 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] /H:/codex/��Ŀ/java-trade/backend/compatibility-probe/src/test/java/dev/commerceflow/probe/LiveMiddlewareTest.java: H:\codex\��Ŀ\java-trade\backend\compatibility-probe\src\test\java\dev\commerceflow\probe\LiveMiddlewareTest.javaʹ�û򸲸����ѹ�ʱ�� API��
+[INFO] /H:/codex/��Ŀ/java-trade/backend/compatibility-probe/src/test/java/dev/commerceflow/probe/LiveMiddlewareTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ compatibility-probe ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.commerceflow.probe.CompatibilityRejectionTest
+08:08:22.989 [main] WARN org.springframework.context.annotation.AnnotationConfigApplicationContext -- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'compositeCompatibilityVerifier' defined in org.springframework.cloud.configuration.CompatibilityVerifierAutoConfiguration: Failed to instantiate [org.springframework.cloud.configuration.CompositeCompatibilityVerifier]: Factory method 'compositeCompatibilityVerifier' threw exception with message: Spring Cloud/ Spring Boot version compatibility checks have failed: [[VerificationResult@62417a16 description = 'Spring Boot [3.5.16] is not compatible with this Spring Cloud release train', action = 'Change Spring Boot version to one of the following versions [0.0.x] .
+You can find the latest Spring Boot versions here [https://spring.io/projects/spring-boot#learn]. 
+If you want to learn more about the Spring Cloud Release train compatibility, you can visit this page [https://spring.io/projects/spring-cloud#overview] and check the [Release Trains] section.
+If you want to disable this check, just set the property [spring.cloud.compatibility-verifier.enabled=false]']]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.598 s -- in dev.commerceflow.probe.CompatibilityRejectionTest
+[INFO] Running dev.commerceflow.probe.CompatibilityTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-16T08:08:23.482+08:00  INFO 40704 --- [compatibility-probe] [           main] d.commerceflow.probe.CompatibilityTest   : Starting CompatibilityTest using Java 21.0.13 with PID 40704 (started by 27019 in H:\codex\��Ŀ\java-trade\backend\compatibility-probe)
+2026-11-16T08:08:23.484+08:00  INFO 40704 --- [compatibility-probe] [           main] d.commerceflow.probe.CompatibilityTest   : No active profile set, falling back to 1 default profile: "default"
+2026-11-16T08:08:24.329+08:00  INFO 40704 --- [compatibility-probe] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9e759730-0c3b-3461-8a0a-025f7f3482f1
+2026-11-16T08:08:25.017+08:00  INFO 40704 --- [compatibility-probe] [           main] d.commerceflow.probe.CompatibilityTest   : Started CompatibilityTest in 1.829 seconds (process running for 3.203)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (H:\codex\???\java-trade\.tools\m2\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.939 s -- in dev.commerceflow.probe.CompatibilityTest
+[INFO] Running dev.commerceflow.probe.LiveMiddlewareTest
+2026-11-16T08:08:26.663+08:00  INFO 40704 --- [compatibility-probe] [       Thread-5] c.a.n.c.a.r.identify.CredentialWatcher   : null No credential found
+2026-11-16T08:08:26.666+08:00  INFO 40704 --- [compatibility-probe] [           main] c.a.nacos.client.logging.NacosLogging    : Nacos Logging Adapter Builder: com.alibaba.nacos.logger.adapter.logback14.LogbackNacosLoggingAdapterBuilder
+2026-11-16T08:08:26.668+08:00  INFO 40704 --- [compatibility-probe] [           main] c.a.nacos.client.logging.NacosLogging    : Nacos Logging Adapter: com.alibaba.nacos.logger.adapter.logback14.LogbackNacosLoggingAdapter match ch.qos.logback.classic.Logger success.
+2026-11-16T08:08:26.669+08:00  INFO 40704 --- [compatibility-probe] [           main] c.a.nacos.client.logging.NacosLogging    : Nacos Logging Adapter Builder: com.alibaba.nacos.logger.adapter.log4j2.Log4j2NacosLoggingAdapterBuilder
+2026-11-16T08:08:26.796+08:00  INFO 40704 --- [compatibility-probe] [           main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2026-11-16T08:08:26.796+08:00  INFO 40704 --- [compatibility-probe] [           main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2026-11-16T08:08:27.406+08:00  INFO 40704 --- [compatibility-probe] [           main] c.a.n.c.a.AbstractAbilityControlManager  : Ready to get current node abilities...
+2026-11-16T08:08:27.409+08:00  INFO 40704 --- [compatibility-probe] [           main] c.a.n.c.a.AbstractAbilityControlManager  : Ready to initialize current node abilities, support modes: [SDK_CLIENT]
+2026-11-16T08:08:27.410+08:00  INFO 40704 --- [compatibility-probe] [           main] c.a.n.c.a.AbstractAbilityControlManager  : Initialize current abilities finish...
+2026-11-16T08:08:27.410+08:00  INFO 40704 --- [compatibility-probe] [           main] c.a.n.c.a.d.NacosAbilityManagerHolder    : [AbilityControlManager] Successfully initialize AbilityControlManager
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.453 s -- in dev.commerceflow.probe.LiveMiddlewareTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ compatibility-probe ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: H:\codex\��Ŀ\java-trade\backend\compatibility-probe\target\compatibility-probe-0.1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for commerceflow 0.1.0-SNAPSHOT:
+[INFO] 
+[INFO] commerceflow ....................................... SUCCESS [  2.084 s]
+[INFO] contracts .......................................... SUCCESS [  0.952 s]
+[INFO] trade-service ...................................... SUCCESS [  9.438 s]
+[INFO] payment-simulator .................................. SUCCESS [  7.988 s]
+[INFO] compatibility-probe ................................ SUCCESS [  9.181 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  30.120 s
+[INFO] Finished at: 2026-11-16T08:08:28+08:00
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,14 @@
+Testcontainers containers remaining after two runs: 0
+ Container commerceflow-day2-redis-1 Stopping 
+ Container commerceflow-day2-mysql-1 Stopping 
+ Container commerceflow-day2-redis-1 Stopped 
+ Container commerceflow-day2-redis-1 Removing 
+ Container commerceflow-day2-redis-1 Removed 
+ Container commerceflow-day2-mysql-1 Stopped 
+ Container commerceflow-day2-mysql-1 Removing 
+ Container commerceflow-day2-mysql-1 Removed 
+ Network commerceflow-day2_default Removing 
+ Network commerceflow-day2_default Removed 
+Day 2 Compose containers remaining: 0; named data volumes preserved (no -v).
+commerceflow-day2_mysql-data
+commerceflow-day2_redis-data

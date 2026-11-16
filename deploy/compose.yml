@@ -1,0 +1,38 @@
+name: commerceflow-day2
+services:
+  mysql:
+    image: ${MYSQL_IMAGE:?Load deploy/versions.env}
+    environment:
+      MYSQL_DATABASE: commerceflow_trade
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Run scripts/init-day2-env.ps1}
+      TRADE_MIGRATION_PASSWORD: ${TRADE_MIGRATION_PASSWORD:?Missing migration password}
+      TRADE_APP_PASSWORD: ${TRADE_APP_PASSWORD:?Missing app password}
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_0900_as_cs"]
+    ports:
+      - "127.0.0.1:${MYSQL_PORT:-13306}:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql/init/10-create-trade-users.sh:/docker-entrypoint-initdb.d/10-create-trade-users.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$$MYSQL_ROOT_PASSWORD\" mysql --protocol=TCP -h127.0.0.1 -uroot -Nse 'SELECT 1' | grep -qx 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+  redis:
+    image: ${REDIS_IMAGE:?Load deploy/versions.env}
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?Missing Redis password}
+    command: ["sh", "-c", "exec redis-server --appendonly yes --requirepass \"$$REDIS_PASSWORD\""]
+    ports:
+      - "127.0.0.1:${REDIS_PORT:-16379}:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "REDISCLI_AUTH=\"$$REDIS_PASSWORD\" redis-cli ping | grep -qx PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+volumes:
+  mysql-data:
+  redis-data:
