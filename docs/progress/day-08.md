@@ -34,6 +34,8 @@ Day7工程及Actions已成功，main开工为6550d55，本地远端一致，未�
 
 后端与前端作为两项可独立审查的真实提交，报告与证据单独提交；最终远程SHA和CI状态在核对后补录，不将本地成功推断成远程通过。
 
+第一轮远程[Actions 44001563989](https://github.com/JoeyXXia/trade-java/actions/runs/44001563989)在Maven Wrapper下载3.9.11时失败，尚未执行测试，integration被依赖跳过；[失败摘录](../reports/day8/github-first-failure.txt)保留。GitHub连接器请求重跑返回403 Resource not accessible by integration，未伪称已重跑。后续正常提交该失败记录与复现说明触发新一轮CI；没有空提交或为了网络故障随意升级构建工具。
+
 ## 事务与范围边界
 
 写入先锁product，再比较version，商品及其SKU共享聚合版本，每次成功+1。CatalogAvailability.requireSellable要求外层事务并锁product→SKU；SKU当前锁定读避免早先RR快照回读旧价。报价事务返回后锁释放，报价不锁定将来价格；未来订单须在自己的事务重新校验并保存快照。本日没有订单或库存，不能据此宣称已验证下单/防超卖。

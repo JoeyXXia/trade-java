@@ -8,6 +8,14 @@
 
 SKU编码全局唯一、ASCII 1–64字符，创建后不可变；SKU名称可编辑。商品标题1–128字符，描述0–2000字符。商品上架至少需要一个启用SKU；上架商品最后一个启用SKU不可直接禁用，先下架，再禁用。没有删除接口，后续订单引用所需的稳定ID保留。
 
+本地实验管理员：先通过页面明确注册自己的合成账号，再用本地数据库的受控连接执行下列SQL（将占位名替换为自己刚注册的账号），核对仅命中该账号，然后重新登录。不要开放公开提权接口、不要对全部账号UPDATE，也不要把口令写入迁移。真实业务环境的管理员授予流程仍需单独设计。
+
+```sql
+SELECT id, login_name, role FROM app_user WHERE login_name = 'your-local-fixture';
+UPDATE app_user SET role = 'ADMIN' WHERE login_name = 'your-local-fixture' AND role = 'BUYER';
+SELECT id, login_name, role FROM app_user WHERE login_name = 'your-local-fixture';
+```
+
 ## API契约
 
 | 方法与路径 | 说明 |
