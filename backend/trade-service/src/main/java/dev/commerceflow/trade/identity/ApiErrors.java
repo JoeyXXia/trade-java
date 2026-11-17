@@ -12,6 +12,12 @@ public class ApiErrors {
     public record ErrorBody(String code, String message, String traceId) {
         public ErrorBody(String code, String message) { this(code, message, TraceIds.current()); }
     }
+    @ExceptionHandler(dev.commerceflow.trade.catalog.CatalogTypes.Invalid.class)
+    ResponseEntity<ErrorBody> catalogInput(Exception ignored) { return error(400, "INVALID_REQUEST", "Invalid request"); }
+    @ExceptionHandler(dev.commerceflow.trade.catalog.CatalogTypes.Missing.class)
+    ResponseEntity<ErrorBody> catalogMissing(Exception ignored) { return error(404, "NOT_FOUND", "Resource not found"); }
+    @ExceptionHandler(dev.commerceflow.trade.catalog.CatalogTypes.Conflict.class)
+    ResponseEntity<ErrorBody> catalogConflict(dev.commerceflow.trade.catalog.CatalogTypes.Conflict ex) { return error(409, ex.code, "Catalog state conflict; reload and retry"); }
     @ExceptionHandler({MethodArgumentNotValidException.class, HttpMessageNotReadableException.class, AuthService.InvalidInput.class})
     ResponseEntity<ErrorBody> invalid(Exception ignored) { return error(400, "INVALID_REQUEST", "Invalid request"); }
     @ExceptionHandler(AuthenticationException.class)
