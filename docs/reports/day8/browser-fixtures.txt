@@ -1,0 +1,3 @@
+login_name	role
+day8-admin-20261117	ADMIN
+day8-buyer-20261117	BUYER

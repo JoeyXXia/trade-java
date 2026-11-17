@@ -1,0 +1,2 @@
+### Result
+{"invalidCodeRejected":true,"hyphenAccepted":true,"detail":404,"quote":409}

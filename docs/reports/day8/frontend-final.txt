@@ -1,0 +1,12 @@
+
+> commerceflow-web@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 H:/codex/项目/java-trade/web
+
+
+ Test Files  6 passed (6)
+      Tests  17 passed (17)
+   Start at  09:59:28
+   Duration  9.88s (transform 1.14s, setup 0ms, import 12.26s, tests 3.86s, environment 32.87s)

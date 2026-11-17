@@ -1,0 +1,2 @@
+### Result
+{"productId":"1","skuId":"1","priceCents":"9007199254740993","published":true}

@@ -1,0 +1,4 @@
+ Container commerceflow-day2-mysql-1 Starting
+ Container commerceflow-day2-mysql-1 Started
+ Container commerceflow-day2-mysql-1 Waiting
+ Container commerceflow-day2-mysql-1 Healthy

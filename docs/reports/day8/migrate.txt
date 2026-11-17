@@ -1,0 +1,21 @@
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------< dev.commerceflow:trade-service >-------------------
+[INFO] Building trade-service 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- flyway:11.7.2:migrate (default-cli) @ trade-service ---
+[INFO] Database: jdbc:mysql://127.0.0.1:13306/commerceflow_trade?sslMode=DISABLED&allowPublicKeyRetrieval=true&connectTimeout=3000&socketTimeout=5000 (MySQL 8.4)
+[WARNING] Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+[INFO] Successfully validated 5 migrations (execution time 00:00.088s)
+[INFO] Current version of schema `commerceflow_trade`: 4
+[INFO] Migrating schema `commerceflow_trade` to version "5 - catalog"
+[INFO] Successfully applied 1 migration to schema `commerceflow_trade`, now at version v5 (execution time 00:00.263s)
+[WARNING] Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.316 s
+[INFO] Finished at: 2026-11-17T10:02:41+08:00
+[INFO] ------------------------------------------------------------------------
