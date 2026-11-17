@@ -36,6 +36,10 @@ Day7工程及Actions已成功，main开工为6550d55，本地远端一致，未�
 
 第一轮远程[Actions 44001563989](https://github.com/JoeyXXia/trade-java/actions/runs/44001563989)在Maven Wrapper下载3.9.11时失败，尚未执行测试，integration被依赖跳过；[失败摘录](../reports/day8/github-first-failure.txt)保留。GitHub连接器请求重跑返回403 Resource not accessible by integration，未伪称已重跑。后续正常提交该失败记录与复现说明触发新一轮CI；没有空提交或为了网络故障随意升级构建工具。
 
+最终交付：后端[9541e4b](https://github.com/JoeyXXia/trade-java/commit/9541e4b)、前端[6688b6b](https://github.com/JoeyXXia/trade-java/commit/6688b6b)、报告[9eb0c2f](https://github.com/JoeyXXia/trade-java/commit/9eb0c2f)，以及CI失败/复现说明832fb5a均正常推送。第二轮[Actions 44001949432](https://github.com/JoeyXXia/trade-java/actions/runs/44001949432)绑定832fb5a2f8289b5816918e65999e091ec6d67f46，2026-11-17 10:22:51（上海）完成success；checks和integration（两轮真实容器）均success，见[远程步骤证据](../reports/day8/github-actions.json)。业务代码与本地最终验收一致，远程结果来自实际查询。
+
+Day8工程和必要验收已完成。本次未推进Day9，未修改PDF源稿、归档、既有未提交内容或创建v0.1标签；学习者本人独立复现仍待完成。
+
 ## 事务与范围边界
 
 写入先锁product，再比较version，商品及其SKU共享聚合版本，每次成功+1。CatalogAvailability.requireSellable要求外层事务并锁product→SKU；SKU当前锁定读避免早先RR快照回读旧价。报价事务返回后锁释放，报价不锁定将来价格；未来订单须在自己的事务重新校验并保存快照。本日没有订单或库存，不能据此宣称已验证下单/防超卖。

@@ -1,0 +1,133 @@
+{
+  "run_id": 44001949432,
+  "head_sha": "832fb5a2f8289b5816918e65999e091ec6d67f46",
+  "status": "completed",
+  "conclusion": "success",
+  "html_url": "https://github.com/JoeyXXia/trade-java/actions/runs/44001949432",
+  "updated_at": "2026-11-17T02:22:51Z",
+  "jobs": [
+    {
+      "id": 133767942650,
+      "name": "checks",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-17T02:19:22Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate Compose without starting services",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Unit and HTTP tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Reproducible frontend build and audit",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 133768463631,
+      "name": "integration",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-17T02:22:51Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Require Docker Linux engine",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run real integration tests twice",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}
